@@ -1,4 +1,3 @@
-const { model } = require("mongoose")
 
 const loginGuard = (req, res, next) =>{
     if (req.url != "/login" && !req.session.username) {

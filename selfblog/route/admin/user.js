@@ -1,4 +1,7 @@
-const user =  async (req, res) => {
+const bcrypt = require("bcrypt")
+const User = require("../../model/user")
+require("./model/connect")
+const userPage = async (req, res) => {
     // console.log(req);
     console.log(req.body);
     const {email, password} = req.body
@@ -21,4 +24,4 @@ const user =  async (req, res) => {
         }
     }
 }
-module.exports = user
+module.exports = userPage
