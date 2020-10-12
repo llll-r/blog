@@ -1,5 +1,8 @@
 const mongoose = require("mongoose")
-const bcrypt = require("bcrypt")
+const Joi = require("joi")
+
+
+
 //创建用户集合规则
 const userSchema = new mongoose.Schema({
     username: {
@@ -25,37 +28,23 @@ const userSchema = new mongoose.Schema({
     state: {
         type: Number,
         default: 0
-    }
+    },
+    
 })
 
-
 const User = mongoose.model("User", userSchema)
-// async function createUser() {
-//     const salt = await bcrypt.genSalt(10);
-//     const pass = await bcrypt.hash("123456", salt)
-//     const user = await User.create({
-//             username: "lvrui",
-//             email: "lvrui1@qq.com",
-//             password: pass,
-//             role: "admin",
-//             state: 0
-//     })
-//     return user
-// }
 
-// createUser()
-// User.create({
-//     username: "lvrui",
-//     email: "lvrui@qq.com",
-//     password: "123456",
-//     role: "admin",
-//     state: 0
-// }).then(() => {
-//     console.log("创建成功");
-// }).catch(() => {
-//     console.log("创建失败");
-// })
-
+const validateUser = user => {
+    const schema = {
+        username: Joi.string().min(2).max(5).required().error(new Error("用户名不符合要求")),
+        email: Joi.string().email().required().error(new Error("邮箱不符合要求")),
+        password: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/).required().error(new Error("密码不符合要求")),
+        role: Joi.string().valid("normal", "admin").required().error(new Error("角色值非法")),
+        state: Joi.number().valid(0, 1).required().error(new Error("状态值非法"))
+    };
+   return  Joi.validate(user, schema)
+}
 module.exports = {
-    User
+    User,
+    validateUser
 }

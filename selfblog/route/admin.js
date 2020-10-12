@@ -3,19 +3,28 @@ const { User } = require("../model/user")
 const bcrypt = require("bcrypt")
 const admin = express.Router()
 
-//登录请求
-admin.get("/login", require("./admin/login"))
+//渲染登录页面
+admin.get("/login", require("./admin/loginPage"))
 
-//
-admin.get("/article", (req, res) => {
-    res.render("admin/article")
-})
+//渲染文章页面
+admin.get("/article", require("./admin/articlePage"))
 
-//请求用户管理页面
+//用户管理功能
 admin.post("/user", require("./admin/user"))
 
+//渲染用户页面
+admin.get("/user", require("./admin/userPage"))
 
-admin.get("/user", (req, res) => {
-    res.render("admin/user")
-})
+//渲染新增用户页面
+admin.get("/user-edit", require("./admin/user-editPage"))
+
+//实现修改用户信息功能
+admin.post("/user-edit", require("./admin/user-edit"))
+
+//实现添加用户信息功能
+admin.post("/user-add", require("./admin/user-add"))
+
+
+//渲染修改文章页面
+admin.get("/article-edit", require("./admin/article-edit"))
 module.exports = admin

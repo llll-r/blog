@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt")
-const User = require("../../model/user")
-require("./model/connect")
+const { User} = require("../../model/user")
+require("../../model/connect")
 const userPage = async (req, res) => {
     // console.log(req);
     console.log(req.body);
@@ -11,12 +11,18 @@ const userPage = async (req, res) => {
         })
     } else {
         let user = await User.findOne({ email })
-        console.log(user);
-        let isValid = await bcrypt.compare(password, user.password)
-        if (isValid) {
-            req.session.username = user.username
-            req.app.locals.userInfo = user
-            res.redirect("/admin/user")
+        if (user) {
+            let isValid = await bcrypt.compare(password, user.password)
+            if (isValid) {
+                req.session.username = user.username
+                req.app.locals.userInfo = user
+                res.redirect("/admin/user")
+        }
+        else {
+                res.render("admin/error", {
+                    errMsg:"用户或密码错误"
+                })
+            }
         } else {
             res.render("admin/error", {
                 errMsg:"用户名不存在"
