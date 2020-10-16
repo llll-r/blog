@@ -10,7 +10,9 @@ module.exports = async (req, res) => {
   form.parse(req, async (err, fields, files) => {
     await Article.create({
       title: fields.title,
-      author:fields.author,
+      author: fields.author,
+      category: fields.category,
+      tag: fields.tag,
       cover:files.cover.path.split("public")[1],
       publishDate:fields.publishDate,
       content:fields.content

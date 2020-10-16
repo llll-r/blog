@@ -14,6 +14,14 @@ const articleSchema = new mongoose.Schema({
         default:Date.now
         
     },
+    category: {
+        type: String,
+        required:[true, "请输入分类"]
+    },
+    tag: {
+        type: Array,
+        required:[true, "请给文章打标签"]
+    },
     cover: {
         type: String,
         default:null
