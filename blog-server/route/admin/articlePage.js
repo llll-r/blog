@@ -9,9 +9,5 @@ module.exports = async (req, res) => {
     let articles = await Article.find().populate("author").exec()
     articles = JSON.stringify(articles)
     articles = JSON.parse(articles)
-    // res.render("admin/article", {
-    //     articles:articles
-    // })
-    // return articles
     res.send(articles)
 }

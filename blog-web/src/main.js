@@ -3,6 +3,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import dateformat from "dateformat"
+import CKEditor from "@ckeditor/ckeditor5-vue/dist/ckeditor";
+
 import {
   Button, Layout, Card, message, Menu, Icon,
   Row, Col, Divider,Timeline,
@@ -26,6 +28,9 @@ Vue.use(Tag)
 Vue.use(Row)
 Vue.use(Col)
 Vue.use(Timeline)
+
+
+Vue.use(CKEditor);
 Vue.config.productionTip = false
 Vue.prototype.date = dateformat
 new Vue({

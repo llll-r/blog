@@ -28,11 +28,11 @@
       class="margin-auto"
       
     >
-      <a-tag color="#87d068" class="ant-tag"><a href="">✏多线程</a>2</a-tag>
-      <a-tag color="pink"><a href="">✏JAVA</a>3</a-tag>
-      <a-tag color="red"><a href="">✏Node</a>5</a-tag>
-      <a-tag color="#108ee9"><a href="">✏线程</a>7</a-tag>
-      <a-tag color="cyan"><a href="">✏多线</a>5</a-tag>
+      <a-tag color="#87d068" class="tag"><a href="">🎐多线程</a>2</a-tag>
+      <a-tag color="pink" class="tag"><a href="">🎐JAVA</a>3</a-tag>
+      <a-tag color="red" class="tag"><a href="">🎐Node</a>5</a-tag>
+      <a-tag color="#108ee9" class="tag"><a href="">🎐线程</a>7</a-tag>
+      <a-tag color="cyan" class="tag"><a href="">🎐多线</a>5</a-tag>
     </a-card>
   </div>
 </template>
@@ -50,6 +50,7 @@ export default {
       this.show = true;
     }, 1000);
   },
+  
 };
 </script>
 <style>
@@ -69,9 +70,11 @@ export default {
 .margin-auto {
   margin: 0 auto;
 }
-.ant-tag {
-  padding: 7px 16px;
-  font-size: 16px;
-  margin-right: 10px;
+.tag{
+  padding: 7px;
+   margin-right: 20px;
+   margin-top: 10px;
+   font-size: 15px;
+   font-family:'Times New Roman', Times, serif
 }
 </style>

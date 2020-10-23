@@ -2,8 +2,9 @@
   <div>
     <a-menu mode="horizontal" class="navigation" id="top">
       <a-menu-item key="mail" class="logo-name">
-      <router-link to="/">  LvRui </router-link></a-menu-item>
-      <a-menu-item key="app"><router-link to="/category"><a-icon type="appstore" /> 分类 </router-link></a-menu-item>
+      <router-link to="/">  LvRui </router-link>
+      </a-menu-item>
+            <a-menu-item key="app"><router-link to="/category"><a-icon type="appstore" /> 分类 </router-link></a-menu-item>
       <a-menu-item key="time-line"><router-link to="/timeLine"> <a-icon type="bars" />时间轴</router-link> </a-menu-item>
       <a-menu-item key="alipay"><router-link to=""><a-icon type="message" />联系我</router-link></a-menu-item>
         <a-menu-item key="about"><router-link to="/about"><a-icon type="message" />关于我</router-link></a-menu-item>

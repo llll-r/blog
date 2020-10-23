@@ -1,6 +1,7 @@
 const express = require("express")
 const { User } = require("../model/user")
 const bcrypt = require("bcrypt")
+const {Article}= require("../model/article")
 const admin = express.Router()
 
 //渲染登录页面
@@ -31,12 +32,10 @@ admin.get("/article-edit", require("./admin/article-editPage"))
 //文章修改功能
 admin.post("/article-edit", require("./admin/article-add"))
 
+//文章删除功能
+admin.get("/delArticle", require("./admin/delArticle"))
 
-//测试
-admin.get("/test", (req, res) => {
-    
-    res.setHeader("Access-Control-Allow-Origin","*");
-    const message = "我是数据"
-    res.send(message)
-})
+
+//测试通过标签查找
+admin.post("/uploads",require("./admin/image") )
 module.exports = admin

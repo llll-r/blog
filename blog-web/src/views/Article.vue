@@ -4,7 +4,7 @@
       <div class="article-header">
         <h3 class="article-title">{{message.title}}</h3>
         <div class="article-info">
-          <span class="author">{{message.author.username}}</span>
+          <span class="author">{{username}}</span>
           <span>{{date(message.publishDate, "yyyy-mm-dd")}}</span>
         </div>
       </div>
@@ -17,7 +17,7 @@
         <form class="comment-form">
           <textarea class="comment"></textarea>
           <div class="items">
-            <input type="submit" value="提交" />
+            <input type="button" value="提交" @click="searchTag" />
           </div>
         </form>
         <div class="comment-list">
@@ -42,7 +42,8 @@ export default {
   name: "Article",
   data() {
     return {
-        message:""
+        message:"",
+        username:""
     };
   },
   activated() {},
@@ -51,8 +52,16 @@ export default {
         axios.get("http://localhost:3000/home/article?id="+this.$route.query.id).then((res) => {
       console.log(res);
       this.message = res.data;
+       this.username =this.message.author.username
       console.log(this.message);
     });
+  },
+  methods:{
+     searchTag(){
+ axios.get("http://localhost:3000/admin/article-tag?tag=vue").then(res=>{
+   console.log(res);
+ })
+     }
   }
 };
 </script>
@@ -66,4 +75,5 @@ export default {
 .article .container {
   padding: 0 !important;
 }
+
 </style>

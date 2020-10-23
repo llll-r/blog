@@ -19,14 +19,19 @@
 /* 文章开始 */
 .article-header {
 	margin-bottom: 20px;
+	
 }
 
 .article-header h3 {
 	transition: all 0.2s;
+	/* font-size: 20px; */
+	font-size: 36px;
+	color: rgb(3, 3, 3);
 }
 
 .article-header h3:hover {
 	color: #ff7300;
+	/* cursor: ; */
 }
 
 .article-content {
@@ -34,11 +39,20 @@
 }
 
 .article-content p {
-	font-size: 14px;
+	font-size: 19px;
 	line-height: 26px;
 	padding: 8px 0;
+	color: rgb(44, 43, 43);
+	font-family: cursive;
 }
 
+.article-content img{
+	vertical-align: middle;
+    border-style: none;
+    /* height: 280px; */
+    max-width: 500px;
+    max-height: 500px;
+}
 /* 文章结束 */
 
 
