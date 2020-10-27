@@ -29,4 +29,4 @@ app.use("/home", home)
 const config = require("config")
 console.log(config.get("title"));
 app.listen(8080)
-console.log("listening port");
+console.log("listening port 8080");
