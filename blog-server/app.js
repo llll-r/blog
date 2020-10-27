@@ -28,5 +28,5 @@ app.use("/home", home)
 // console.log(process.env);
 const config = require("config")
 console.log(config.get("title"));
-app.listen(3000)
+app.listen(8080)
 console.log("listening port");
