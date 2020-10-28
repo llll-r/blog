@@ -85,7 +85,7 @@ export default {
     };
   },
   created() {
-    axios.get("http://lr.ideabeat.cn/admin/article").then((res) => {
+    axios.get("http://lr.ideabeat.cn:8080/admin/article").then((res) => {
       console.log(res);
       res.data.forEach((element, index) => {
         this.data.push({
@@ -109,7 +109,7 @@ export default {
       const delItem = this.data.filter((item) => item.key == this.delIndex);
       let id = delItem[0].name;
        this.visible = false
-      axios.get("http://lr.ideabeat.cn/admin/delArticle?id="+id).then(res=>{
+      axios.get("http://lr.ideabeat.cn:8080/admin/delArticle?id="+id).then(res=>{
       })
        location.reload()
     },

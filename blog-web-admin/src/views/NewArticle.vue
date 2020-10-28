@@ -187,7 +187,7 @@ export default {
       const data = this.form;
       console.log(data);
       axios
-        .post("http://lr.ideabeat.cn/admin/article-edit", data)
+        .post("http://lr.ideabeat.cn:8080/admin/article-edit", data)
         .then(this.$router.push("/articlePage"))
         .catch((e) => {
           console.log(e);
@@ -210,7 +210,7 @@ export default {
   created() {
     this.id = this.$route.query.id;
     axios
-      .get("http://lr.ideabeat.cn/admin/article-edit?id=" + this.id)
+      .get("http://lr.ideabeat.cn:8080/admin/article-edit?id=" + this.id)
       .then((res) => {
         for (const key in res.data) {
           if (this.form.hasOwnProperty(key)) {
