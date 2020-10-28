@@ -4,7 +4,7 @@
       <div class="article-header">
         <h3 class="article-title">{{message.title}}</h3>
         <div class="article-info">
-          <span class="author">{{username}}</span>
+          <!-- <span class="author">{{username?username:""}}</span> -->
           <span>{{date(message.publishDate, "yyyy-mm-dd")}}</span>
         </div>
       </div>
@@ -49,10 +49,10 @@ export default {
   activated() {},
   created(){
       console.log(this.$route.query.id);
-        axios.get("101.37.117.102:8080/home/article?id="+this.$route.query.id).then((res) => {
+        axios.get("http://101.37.117.102:8080/home/article?id="+this.$route.query.id).then((res) => {
       console.log(res);
       this.message = res.data;
-       this.username =this.message.author.username
+      //  this.username =this.message.author.username
       console.log(this.message);
     });
   },

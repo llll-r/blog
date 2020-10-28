@@ -72,6 +72,7 @@ export default {
   created() {
     axios.get("http://101.37.117.102:8080/admin/article").then((res) => {
       this.message = res.data;
+      console.log(this.message);
       this.isLoading = false;
     });
   },
