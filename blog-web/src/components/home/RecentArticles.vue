@@ -70,7 +70,7 @@ export default {
   },
   props: {},
   created() {
-    axios.get("http://localhost:3000/admin/article?role='web'").then((res) => {
+    axios.get("http://101.37.117.102:8080/admin/article").then((res) => {
       this.message = res.data;
       this.isLoading = false;
     });

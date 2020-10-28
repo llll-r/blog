@@ -49,7 +49,7 @@ export default {
   activated() {},
   created(){
       console.log(this.$route.query.id);
-        axios.get("http://localhost:3000/home/article?id="+this.$route.query.id).then((res) => {
+        axios.get("101.37.117.102:8080/home/article?id="+this.$route.query.id).then((res) => {
       console.log(res);
       this.message = res.data;
        this.username =this.message.author.username
@@ -58,7 +58,7 @@ export default {
   },
   methods:{
      searchTag(){
- axios.get("http://localhost:3000/admin/article-tag?tag=vue").then(res=>{
+ axios.get("101.37.117.102:8080/admin/article-tag?tag=vue").then(res=>{
    console.log(res);
  })
      }
